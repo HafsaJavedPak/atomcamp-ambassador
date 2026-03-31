@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomcamp Campus Ambassador Handbook | Complete Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B9FF81;
+            --dark: #002333;
+            --dark-2: #00334d;
+            --accent: #FF6700;
+            --accent-2: #00CFFF;
+            --text-light: #F8F9FA;
+            --text-muted: rgba(255, 255, 255, 0.65);
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ─── SIDEBAR ─── */
+        .sidebar {
+            position: fixed;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: none;
+        }
+        @media (min-width: 1200px) { .sidebar { display: flex; flex-direction: column; gap: 8px; } }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 0.08em;
+            padding: 4px 0;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .sidebar a::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .sidebar a:hover, .sidebar a.active { color: var(--primary); }
+        .sidebar a:hover::before, .sidebar a.active::before { background: var(--primary); box-shadow: 0 0 8px var(--primary); }
+        .sidebar-label { display: none; }
+        .sidebar a:hover .sidebar-label, .sidebar a.active .sidebar-label { display: inline; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 30% 50%, rgba(0, 207, 255, 0.07) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(185, 255, 129, 0.06) 0%, transparent 60%),
+                        linear-gradient(180deg, #002333 0%, #001a26 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 60px),
+                              repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 60px);
+            pointer-events: none;
+        }
+        .hero-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-2);
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 207, 255, 0.3);
+            padding: 6px 20px;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .logo-text {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--primary); }
+        .hero-subtitle {
+            font-family: 'DM Mono', monospace;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+        .hero-objective {
+            max-width: 600px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+        .hero-objective strong {
+            display: block;
+            color: var(--primary);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        .hero-objective ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .hero-objective ul li {
+            padding: 4px 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .hero-objective ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(185, 255, 129, 0.25); }
+
+        /* ─── LAYOUT ─── */
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+        section { margin-bottom: 9rem; padding-top: 2rem; }
+
+        /* ─── SECTION HEADERS ─── */
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-2);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        h3 {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        h3 em { color: var(--primary); font-style: normal; }
+        .section-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; max-width: 680px; }
+        h4 {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h4::before { content: '//'; color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.9rem; }
+        p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1rem; }
+
+        /* ─── DIVIDER ─── */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+            margin-bottom: 3rem;
+        }
+
+        /* ─── CHECKLIST ─── */
+        .checklist { list-style: none; margin: 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
+        .checklist li {
+            background: var(--glass);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .checklist li:hover { background: rgba(185,255,129,0.04); border-color: rgba(185,255,129,0.2); color: var(--text-light); }
+        .checklist input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+        .checklist li strong { color: var(--text-light); }
+
+        /* ─── TIP CALLOUT ─── */
+        .tip {
+            background: rgba(185,255,129,0.06);
+            border-left: 3px solid var(--primary);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .tip strong { color: var(--primary); display: block; margin-bottom: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .tip p { margin: 0; font-size: 0.95rem; }
+
+        .warning {
+            background: rgba(255, 103, 0, 0.07);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .warning strong { color: var(--accent); display: block; margin-bottom: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .warning p { margin: 0; font-size: 0.95rem; }
+
+        /* ─── GRID & CARDS ─── */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .card {
+            background: var(--glass);
+            padding: 1.75rem;
+            border-radius: 14px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-4px); border-color: rgba(185,255,129,0.2); }
+        .card > strong { display: block; color: var(--text-light); font-size: 1rem; margin-bottom: 0.75rem; }
+        .card > p { font-size: 0.9rem; margin: 0; }
+        .card-accent { border-left: 3px solid var(--accent); }
+        .card-blue { border-left: 3px solid var(--accent-2); }
+        .card-green { border-left: 3px solid var(--primary); }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* ─── KPI TABLE ─── */
+        .kpi-section { margin: 2.5rem 0; }
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1rem;
+        }
+        .kpi-badge {
+            background: rgba(185,255,129,0.1);
+            color: var(--primary);
+            border: 1px solid rgba(185,255,129,0.25);
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .kpi-badge.orange { background: rgba(255,103,0,0.1); color: var(--accent); border-color: rgba(255,103,0,0.25); }
+        .kpi-badge.blue { background: rgba(0,207,255,0.1); color: var(--accent-2); border-color: rgba(0,207,255,0.25); }
+        .kpi-title { font-size: 1rem; font-weight: 600; color: var(--text-light); }
+        .kpi-weight { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-left: auto; }
+
+        table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1.5rem; }
+        th {
+            background: rgba(185,255,129,0.06);
+            color: var(--primary);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        td {
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { color: var(--text-light); background: rgba(255,255,255,0.02); }
+        td strong { color: var(--text-light); }
+
+        /* ─── SCORE TIERS ─── */
+        .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .score-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+        }
+        .score-range { font-family: 'DM Mono', monospace; font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .score-label { font-size: 0.85rem; color: var(--text-muted); }
+        .score-gold { background: rgba(255,215,0,0.06); border-color: rgba(255,215,0,0.2); }
+        .score-gold .score-range { color: #FFD700; }
+        .score-silver { background: rgba(185,255,129,0.06); border-color: rgba(185,255,129,0.2); }
+        .score-silver .score-range { color: var(--primary); }
+        .score-blue { background: rgba(0,207,255,0.06); border-color: rgba(0,207,255,0.2); }
+        .score-blue .score-range { color: var(--accent-2); }
+        .score-red { background: rgba(255,103,0,0.06); border-color: rgba(255,103,0,0.2); }
+        .score-red .score-range { color: var(--accent); }
+
+        /* ─── TIMELINE ─── */
+        .timeline { position: relative; padding-left: 2rem; margin: 2rem 0; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+        .timeline-month {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--primary);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+        .timeline-content { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* ─── FAQ ─── */
+        .faq-item { margin-bottom: 0; border-bottom: 1px solid var(--glass-border); }
+        .faq-q {
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 1.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .faq-q:hover { color: var(--primary); }
+        .faq-q::after { content: '+'; color: var(--primary); font-size: 1.4rem; font-weight: 300; flex-shrink: 0; }
+        .faq-a { font-size: 0.92rem; color: var(--text-muted); padding-bottom: 1.2rem; line-height: 1.6; }
+
+        /* ─── RESOURCES ─── */
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .resource-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .resource-item:hover { border-color: rgba(185,255,129,0.3); transform: translateY(-3px); }
+        .resource-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+        .resource-name { font-size: 0.88rem; font-weight: 600; color: var(--text-light); }
+
+        /* ─── COMMS ─── */
+        .comms-row { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--glass); border-radius: 10px; border: 1px solid var(--glass-border); margin-bottom: 0.75rem; font-size: 0.92rem; color: var(--text-muted); }
+        .comms-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.2);
+        }
+        footer .logo-text { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        footer p { font-size: 0.95rem; margin-bottom: 0.25rem; }
+        footer .copy { font-size: 0.75rem; opacity: 0.35; margin-top: 2rem; font-family: 'DM Mono', monospace; }
+
+        /* ─── SCROLL FADE IN ─── */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebarNav">
+        <a href="#welcome" title="Welcome"><span class="sidebar-label">Welcome</span></a>
+        <a href="#role" title="Role"><span class="sidebar-label">Role</span></a>
+        <a href="#onboarding" title="Onboarding"><span class="sidebar-label">Onboarding</span></a>
+        <a href="#activities" title="Activities"><span class="sidebar-label">Activities</span></a>
+        <a href="#community" title="Community"><span class="sidebar-label">Community</span></a>
+        <a href="#content" title="Content"><span class="sidebar-label">Content</span></a>
+        <a href="#events" title="Events"><span class="sidebar-label">Events</span></a>
+        <a href="#training" title="Training"><span class="sidebar-label">Training</span></a>
+        <a href="#kpi" title="KPIs"><span class="sidebar-label">KPIs</span></a>
+        <a href="#incentives" title="Incentives"><span class="sidebar-label">Incentives</span></a>
+        <a href="#reporting" title="Reporting"><span class="sidebar-label">Reporting</span></a>
+        <a href="#timeline" title="Timeline"><span class="sidebar-label">Timeline</span></a>
+        <a href="#faq" title="FAQ"><span class="sidebar-label">FAQ</span></a>
+        <a href="#trouble" title="Troubleshooting"><span class="sidebar-label">Support</span></a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="welcome">
+        <div class="hero-badge">2026 · Complete Reference Guide</div>
+        <div class="logo-text">atom<span>camp</span></div>
+        <p class="hero-subtitle">Campus Ambassador Program · Standalone Playbook</p>
+        <div class="hero-objective reveal">
+            <strong>// Program Objective</strong>
+            <ul>
+                <li>Build strong student communities across universities</li>
+                <li>Increase awareness of Atomcamp bootcamps & learning paths</li>
+                <li>Encourage peer-to-peer learning and tech education</li>
+                <li>Identify future leaders in the Atomcamp ecosystem</li>
+            </ul>
+        </div>
+        <a href="#role" class="btn">Start Reading</a>
+    </header>
+
+    <div class="container">
+
+        <!-- ── ROLE & RESPONSIBILITIES ── -->
+        <section id="role" class="reveal">
+            <span class="section-label">// Section 01</span>
+            <h3>Your Role & <em>Responsibilities</em></h3>
+            <p class="section-desc">As a Campus Ambassador, you are the official face of Atomcamp at your university. Here's everything the role entails.</p>
+            <div class="section-divider"></div>
+
+            <div class="grid">
+                <div class="card card-green">
+                    <span class="card-icon">🌱</span>
+                    <strong>Community Building</strong>
+                    <p>Create a tech learning culture on campus. Engage students interested in AI, Data, Web, Digital Marketing and tech skills.</p>
+                </div>
+                <div class="card card-accent">
+                    <span class="card-icon">📣</span>
+                    <strong>Promotion & Content</strong>
+                    <p>Promote Atomcamp bootcamps, workshops, and programs. Create posts, reels, or testimonials that reach your peer network.</p>
+                </div>
+                <div class="card card-blue">
+                    <span class="card-icon">🎤</span>
+                    <strong>Event Organization</strong>
+                    <p>Organize at least 1 workshop per month — trainings, workshops, study circles, and awareness sessions.</p>
+                </div>
+                <div class="card card-green">
+                    <span class="card-icon">🤝</span>
+                    <strong>Student Support</strong>
+                    <p>Guide students about bootcamps and learning paths. Answer basic questions about Atomcamp offerings and scholarships.</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Program Duration</strong>
+                <p>The Campus Ambassador program runs for <strong>1 year</strong>. Your journey includes orientation, monthly activities, quarterly training, and a final evaluation with graduation certificates.</p>
+            </div>
+        </section>
+
+        <!-- ── ONBOARDING ── -->
+        <section id="onboarding" class="reveal">
+            <span class="section-label">// Section 02</span>
+            <h3>Your First <em>7 Days</em></h3>
+            <p class="section-desc">Before you start shouting from the rooftops, set up your digital campus office. Complete this checklist before Launch Day.</p>
+            <div class="section-divider"></div>
+
+            <ul class="checklist">
+                <li><input type="checkbox"> Read the brand mission and study current bootcamp offerings.</li>
+                <li><input type="checkbox"> Set up a dedicated WhatsApp/Discord Group for your university chapter.</li>
+                <li><input type="checkbox"> Follow Atomcamp on LinkedIn, Instagram, and X.</li>
+                <li><input type="checkbox"> Update your LinkedIn headline to: <strong>"Campus Ambassador @ Atomcamp"</strong>.</li>
+                <li><input type="checkbox"> Schedule a 15-min intro call with your Community Manager.</li>
+                <li><input type="checkbox"> Download the <strong>Marketing Toolkit</strong> (Logos, PPTs, Banners, Referral Links).</li>
+                <li><input type="checkbox"> Join the Ambassador WhatsApp group for inter-campus coordination.</li>
+                <li><input type="checkbox"> Access your Google Sheets KPI tracker via the reporting dashboard.</li>
+            </ul>
+
+            <div class="tip">
+                <strong>Pro Tip</strong>
+                <p>Your first post shouldn't be a pitch. It should be an announcement of your new role and <em>why</em> you joined Atomcamp. Focus on your personal "Why" — authenticity converts better than promotion.</p>
+            </div>
+        </section>
+
+        <!-- ── MONTHLY ACTIVITIES ── -->
+        <section id="activities" class="reveal">
+            <span class="section-label">// Section 03</span>
+            <h3>Monthly Mandatory <em>Activities</em></h3>
+            <p class="section-desc">Every ambassador must complete <strong>3 activities per month</strong> across the following three pillars.</p>
+            <div class="section-divider"></div>
+
+            <div class="grid">
+                <div class="card card-accent">
+                    <span class="card-icon">📢</span>
+                    <strong>1 · Promotion Activity</strong>
+                    <p>Share Atomcamp bootcamp posts · Promote scholarships · Create Instagram/LinkedIn content · Share student success stories</p>
+                </div>
+                <div class="card card-green">
+                    <span class="card-icon">✍️</span>
+                    <strong>2 · Content Creation</strong>
+                    <p>Reels promoting Atomcamp courses · Educational videos · Technical articles · Regular LinkedIn posts (minimum 1/month)</p>
+                </div>
+                <div class="card card-blue">
+                    <span class="card-icon">👥</span>
+                    <strong>3 · Community Growth</strong>
+                    <p>Add students to Atomcamp community groups · Recruit new learners · Conduct surveys about learning interests (questionnaire provided by Atomcamp)</p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>Mandatory Minimums</strong>
+                <p>Failing to complete all 3 activity types in a month affects your Activity & Consistency score (15% of total KPI). Consistency over perfection — a small effort every month beats one big sprint.</p>
+            </div>
+        </section>
+
+        <!-- ── COMMUNITY ── -->
+        <section id="community" class="reveal">
+            <span class="section-label">// Section 04</span>
+            <h3>Community Building <em>Playbook</em></h3>
+            <p class="section-desc">Your goal is to become the "go-to tech person" on campus. Here is how you build a movement, not just a group chat.</p>
+            <div class="section-divider"></div>
+
+            <h4>The "Seed" Strategy</h4>
+            <p>Don't just blast links. Find the 5 most active students in your department. Pitch them the vision of a "Data & AI Hub" on campus. These are your <strong style="color: var(--primary)">Champions</strong>. They will help you moderate groups and spread the word organically.</p>
+
+            <h4>Engagement Tactics</h4>
+            <div class="grid">
+                <div class="card">
+                    <strong>Weekly Tool Showcase</strong>
+                    <p>Share one AI tool (e.g., Perplexity, Claude, Cursor) every Tuesday to keep the group active and curious.</p>
+                </div>
+                <div class="card">
+                    <strong>The Quiz Method</strong>
+                    <p>Run a weekly poll on "Data Science myths" to spark debate and learning — quick, low-effort, high-engagement.</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Handling Silent Groups</strong>
+                <p>If your WhatsApp group goes quiet, ask a question. Example: <em>"What's the #1 skill you're worried about after graduating?"</em> A good question beats ten announcements.</p>
+            </div>
+        </section>
+
+        <!-- ── CONTENT ── -->
+        <section id="content" class="reveal">
+            <span class="section-label">// Section 05</span>
+            <h3>Content Strategy <em>& Tone</em></h3>
+            <p class="section-desc">Content is how you scale your influence beyond your immediate circle. Stay in these buckets and you'll never run dry.</p>
+            <div class="section-divider"></div>
+
+            <h4>The Content Buckets</h4>
+            <div class="grid-3">
+                <div class="card card-green">
+                    <strong>Behind the Scenes</strong>
+                    <p>You studying an Atomcamp course or prepping for an event. Show the process, not just the result.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>Success Story</strong>
+                    <p>Sharing a peer who got a job or landed a skill after an AI bootcamp. Real stories convert.</p>
+                </div>
+                <div class="card card-blue">
+                    <strong>Tech Value</strong>
+                    <p>Tips on Prompt Engineering, Python basics, or AI tools. Educational content builds authority.</p>
+                </div>
+            </div>
+
+            <h4>Sample Post Hooks</h4>
+            <div class="grid">
+                <div class="card card-accent">
+                    <p><em>"Universities teach us 2010 tech. Atomcamp teaches us 2026 skills. Here's what I learned this week..."</em></p>
+                </div>
+                <div class="card card-accent">
+                    <p><em>"Prompt Engineering isn't a hobby — it's a career baseline. I'm hosting a session next Friday..."</em></p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Quarterly Content Requirement</strong>
+                <p>Every ambassador must publish <strong>one technical article per quarter</strong>. Choose a topic within the Atomcamp scope (AI, data, Python, digital skills, career tips). This counts toward your Content & Promotion KPI.</p>
+            </div>
+        </section>
+
+        <!-- ── EVENTS ── -->
+        <section id="events" class="reveal">
+            <span class="section-label">// Section 06</span>
+            <h3>The Event <em>Lifecycle</em></h3>
+            <p class="section-desc">Events are the Super-KPI. One great event can hit all your monthly targets in a single day.</p>
+            <div class="section-divider"></div>
+
+            <h4>Event Checkpoint Checklist</h4>
+            <ul class="checklist">
+                <li><input type="checkbox"> <strong>14 Days Before:</strong> Finalize topic (e.g. "Agentic AI 101") and lock in the date.</li>
+                <li><input type="checkbox"> <strong>10 Days Before:</strong> Send promo graphics to Atomcamp CM for review and approval.</li>
+                <li><input type="checkbox"> <strong>7 Days Before:</strong> Launch registration form and begin the "hype" posts.</li>
+                <li><input type="checkbox"> <strong>1 Day Before:</strong> Send "Final Reminder" to all registrants via WhatsApp and email.</li>
+                <li><input type="checkbox"> <strong>Event Day:</strong> TAKE PHOTOS. A group selfie is mandatory for the monthly report.</li>
+                <li><input type="checkbox"> <strong>Post-Event:</strong> Send a "Thank You" note + Atomcamp referral link to all attendees.</li>
+            </ul>
+
+            <h4>Target Attendance</h4>
+            <div class="grid">
+                <div class="card">
+                    <strong>🖥️ Online Sessions</strong>
+                    <p>Target: <span style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 1.1rem;">30–50</span> participants per session</p>
+                </div>
+                <div class="card">
+                    <strong>🏫 Physical Sessions</strong>
+                    <p>Target: <span style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 1.1rem;">10–20</span> participants per session</p>
+                </div>
+                <div class="card">
+                    <strong>🤝 Collaborative Events</strong>
+                    <p>When co-organized with other ambassadors, attendance targets scale proportionally upward.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── TRAINING ── -->
+        <section id="training" class="reveal">
+            <span class="section-label">// Section 07</span>
+            <h3>Quarterly <em>Training Sessions</em></h3>
+            <p class="section-desc">Mandatory quarterly training sessions ensure you grow professionally while representing Atomcamp. One session per quarter, no exceptions.</p>
+            <div class="section-divider"></div>
+
+            <h4>Technical Sessions</h4>
+            <div class="grid-3">
+                <div class="card card-blue">
+                    <strong>🤖 Agentic AI</strong>
+                    <p>Introduction to autonomous AI agents, tools, and workflows.</p>
+                </div>
+                <div class="card card-blue">
+                    <strong>📊 Data Analytics</strong>
+                    <p>Fundamentals of data analysis, visualization, and storytelling.</p>
+                </div>
+                <div class="card card-blue">
+                    <strong>🐍 Python for Beginners</strong>
+                    <p>Core Python programming for non-CS students.</p>
+                </div>
+                <div class="card card-blue">
+                    <strong>💬 Prompt Engineering</strong>
+                    <p>Practical techniques for working with LLMs effectively.</p>
+                </div>
+            </div>
+
+            <h4>Professional Development Sessions</h4>
+            <div class="grid-3">
+                <div class="card card-accent">
+                    <strong>🔗 LinkedIn Branding</strong>
+                    <p>Personal branding on LinkedIn to attract opportunities.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>🎙️ Public Speaking</strong>
+                    <p>Confidence, clarity, and presence for campus events.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>🌐 Community Building</strong>
+                    <p>Strategies to grow and retain engaged communities.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>🚀 Career Guidance</strong>
+                    <p>Navigating tech careers, internships, and job hunting.</p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>Attendance Requirement</strong>
+                <p>Minimum <strong>80% attendance</strong> at training sessions is required. Missing sessions impacts your Activity & Consistency KPI score.</p>
+            </div>
+        </section>
+
+        <!-- ── KPI ── -->
+        <section id="kpi" class="reveal">
+            <span class="section-label">// Section 08</span>
+            <h3>KPI Framework & <em>Performance Evaluation</em></h3>
+            <p class="section-desc">Your performance is evaluated across five weighted categories. Each category has specific measurable targets you're accountable to every quarter.</p>
+            <div class="section-divider"></div>
+
+            <!-- Community Growth -->
+            <div class="kpi-section">
+                <div class="kpi-header">
+                    <span class="kpi-badge">30%</span>
+                    <span class="kpi-title">1. Community Growth</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Metric</th><th>Target</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Participant attendance (online session)</td><td><strong>30–50 per session</strong></td></tr>
+                        <tr><td>Participant attendance (physical session)</td><td><strong>10–20 per session</strong></td></tr>
+                        <tr><td>New signups to Atomcamp platform</td><td><strong>10+ per quarter</strong></td></tr>
+                        <tr><td>Referrals to bootcamps</td><td><strong>1–2 for entire tenure</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Events & Engagement -->
+            <div class="kpi-section">
+                <div class="kpi-header">
+                    <span class="kpi-badge orange">25%</span>
+                    <span class="kpi-title">2. Events & Engagement</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Metric</th><th>Target</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Events organized</td><td><strong>1 per quarter minimum</strong></td></tr>
+                        <tr><td>Event attendance</td><td><strong>30–50 (scales up for collaborative events)</strong></td></tr>
+                        <tr><td>Student engagement quality</td><td><strong>High participation</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Content & Promotion -->
+            <div class="kpi-section">
+                <div class="kpi-header">
+                    <span class="kpi-badge blue">20%</span>
+                    <span class="kpi-title">3. Content & Promotion</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Metric</th><th>Target</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Social media content (reels, articles, posts)</td><td><strong>1 per month minimum</strong></td></tr>
+                        <tr><td>Stories promoting bootcamps</td><td><strong>4+ per month</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Activity & Consistency -->
+            <div class="kpi-section">
+                <div class="kpi-header">
+                    <span class="kpi-badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted); border-color: var(--glass-border);">15%</span>
+                    <span class="kpi-title">4. Activity & Consistency</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Metric</th><th>Target</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Quarterly report submission</td><td><strong>On time</strong></td></tr>
+                        <tr><td>Meeting attendance</td><td><strong>80% minimum</strong></td></tr>
+                        <tr><td>Training attendance</td><td><strong>80% minimum</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Initiative & Leadership -->
+            <div class="kpi-section">
+                <div class="kpi-header">
+                    <span class="kpi-badge orange">10%</span>
+                    <span class="kpi-title">5. Initiative & Leadership</span>
+                </div>
+                <p style="font-size: 0.92rem;">Measured qualitatively — this is the category that separates good ambassadors from great ones. Includes:</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0;">
+                    <li style="color: var(--text-muted); font-size: 0.92rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">→</span> Creative ideas and novel programs</li>
+                    <li style="color: var(--text-muted); font-size: 0.92rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">→</span> New collaborations with societies or companies</li>
+                    <li style="color: var(--text-muted); font-size: 0.92rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">→</span> Leading campus-wide initiatives independently</li>
+                    <li style="color: var(--text-muted); font-size: 0.92rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">→</span> Helping and mentoring other ambassadors</li>
+                </ul>
+                <div class="tip">
+                    <strong>Ambassador of the Month</strong>
+                    <p>Initiative & Leadership is <em>very important</em> for Ambassador of the Month consideration. Think beyond the minimums.</p>
+                </div>
+            </div>
+
+            <!-- Score Tiers -->
+            <h4>Performance Score Tiers</h4>
+            <div class="score-grid">
+                <div class="score-card score-gold">
+                    <div class="score-range">90–100</div>
+                    <div class="score-label">🏆 Top Performer</div>
+                </div>
+                <div class="score-card score-silver">
+                    <div class="score-range">75–89</div>
+                    <div class="score-label">⭐ High Performer</div>
+                </div>
+                <div class="score-card score-blue">
+                    <div class="score-range">60–74</div>
+                    <div class="score-label">✅ Active Ambassador</div>
+                </div>
+                <div class="score-card score-red">
+                    <div class="score-range">&lt; 60</div>
+                    <div class="score-label">⚠️ Needs Improvement</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── INCENTIVES ── -->
+        <section id="incentives" class="reveal">
+            <span class="section-label">// Section 09</span>
+            <h3>Incentive <em>System</em></h3>
+            <p class="section-desc">Performance is recognized and rewarded at every level — monthly, quarterly, and for top performers at the end of the program.</p>
+            <div class="section-divider"></div>
+
+            <div class="grid-3">
+                <div class="card card-green">
+                    <span class="card-icon">📅</span>
+                    <strong>Monthly Rewards</strong>
+                    <p>Top 3 ambassadors recognized publicly · Social media shoutouts · Certificates of recognition</p>
+                </div>
+                <div class="card card-blue">
+                    <span class="card-icon">📆</span>
+                    <strong>Quarterly Rewards</strong>
+                    <p>Free workshops · Exclusive mentorship sessions · Atomcamp merchandise</p>
+                </div>
+                <div class="card card-accent">
+                    <span class="card-icon">🏅</span>
+                    <strong>Major Rewards (Top Performers)</strong>
+                    <p>Scholarships in Atomcamp bootcamps · Internship opportunities · Recommendation letters · Leadership positions in Atomcamp community</p>
+                </div>
+            </div>
+
+            <h4>Ambassador Benefits (All Members)</h4>
+            <div class="grid">
+                <div class="card">
+                    <p>✔ Official Campus Ambassador Certificate</p>
+                    <p>✔ Leadership experience on your resume</p>
+                    <p>✔ Access to exclusive workshops</p>
+                </div>
+                <div class="card">
+                    <p>✔ Networking opportunities across Pakistan</p>
+                    <p>✔ Scholarship eligibility</p>
+                    <p>✔ Potential internship opportunities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── REPORTING ── -->
+        <section id="reporting" class="reveal">
+            <span class="section-label">// Section 10</span>
+            <h3>Reporting <em>System</em></h3>
+            <p class="section-desc">Quarterly reports keep you accountable and unlock your incentive eligibility. Late or incomplete reports affect your Activity & Consistency score.</p>
+            <div class="section-divider"></div>
+
+            <h4>What to Include in Your Quarterly Report</h4>
+            <ul class="checklist">
+                <li><input type="checkbox"> Events conducted (with dates, topics, and format)</li>
+                <li><input type="checkbox"> Total students reached (numbers only)</li>
+                <li><input type="checkbox"> Community growth numbers (new members added)</li>
+                <li><input type="checkbox"> Social media links (posts, reels, articles)</li>
+                <li><input type="checkbox"> Photos and videos of events</li>
+            </ul>
+
+            <h4>Reporting Tools</h4>
+            <div class="grid">
+                <div class="card card-blue">
+                    <strong>📋 Google Form</strong>
+                    <p>Submit your quarterly report through the official Atomcamp Google Form link provided by your Community Manager.</p>
+                </div>
+                <div class="card card-green">
+                    <strong>📊 Google Sheets Tracker</strong>
+                    <p>Your personal KPI dashboard is maintained on Google Sheets. Update it monthly so nothing gets lost at quarter-end.</p>
+                </div>
+            </div>
+
+            <h4>Ambassador Resources Provided</h4>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <span class="resource-icon">🎨</span>
+                    <div class="resource-name">Marketing Toolkit</div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">📑</span>
+                    <div class="resource-name">Presentation Slides</div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">📖</span>
+                    <div class="resource-name">Community Guide</div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">🔗</span>
+                    <div class="resource-name">Referral Links</div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">💬</span>
+                    <div class="resource-name">WhatsApp / Discord Access</div>
+                </div>
+            </div>
+
+            <h4>Communication Channels</h4>
+            <div class="comms-row"><span class="comms-icon">💬</span> <span>WhatsApp group for quick updates and inter-ambassador coordination</span></div>
+            <div class="comms-row"><span class="comms-icon">📹</span> <span>Monthly Zoom / Google Meet with your Community Manager</span></div>
+        </section>
+
+        <!-- ── TIMELINE ── -->
+        <section id="timeline" class="reveal">
+            <span class="section-label">// Section 11</span>
+            <h3>Program <em>Timeline</em></h3>
+            <p class="section-desc">A full year from orientation to graduation. Here's the macro structure of your tenure.</p>
+            <div class="section-divider"></div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-month">Month 1</div>
+                    <div class="timeline-content">Orientation · First training session · Community launch on campus · Set up digital channels</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Months 2–11</div>
+                    <div class="timeline-content">Monthly mandatory activities (3/month) · Quarterly training sessions · Quarterly report submissions · KPI tracking and performance reviews · Ongoing community building and event organization</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Month 12</div>
+                    <div class="timeline-content">Final evaluation · Scholarship awards for top performers · Graduation certificates for all · Leadership position nominations</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── FAQ ── -->
+        <section id="faq" class="reveal">
+            <span class="section-label">// Section 12</span>
+            <h3>Student <em>FAQ Guide</em></h3>
+            <p class="section-desc">Students will ask you these questions. Use these verified answers to maintain authority and accuracy.</p>
+            <div class="section-divider"></div>
+
+            <div class="faq-item">
+                <div class="faq-q">"Are Atomcamp bootcamps only for CS students?"</div>
+                <div class="faq-a">Not at all! Atomcamp offers bootcamps for Digital Marketing, HR Analytics, and Data Analytics specifically designed for non-techies. AI skills are for everyone — regardless of your degree.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">"Is there a certificate at the end?"</div>
+                <div class="faq-a">Yes. Every bootcamp comes with a verified certificate and industry-aligned projects you can add directly to your portfolio.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">"How long are the bootcamps?"</div>
+                <div class="faq-a">Duration varies by program. Students should check the Atomcamp website or ask you directly — always refer them to the official pages for the most current information.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">"Do I need prior experience to join?"</div>
+                <div class="faq-a">Most bootcamps are beginner-friendly. Atomcamp is designed to take students from zero to job-ready, so prior experience isn't a requirement for most tracks.</div>
+            </div>
+        </section>
+
+        <!-- ── TROUBLESHOOTING ── -->
+        <section id="trouble" class="reveal">
+            <span class="section-label">// Section 13</span>
+            <h3>Troubleshooting <em>& Support</em></h3>
+            <p class="section-desc">Running a program for the first time is hard. Here's how to fix the most common issues quickly.</p>
+            <div class="section-divider"></div>
+
+            <div class="grid">
+                <div class="card card-accent">
+                    <strong>📉 Low Event Signups?</strong>
+                    <p>Partner with an existing university society (CS Society, IEEE Chapter, ACM). Let them take co-credit for the event. Their audience + your content = full room.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>📱 Zero Social Engagement?</strong>
+                    <p>Tag official Atomcamp handles in every post. Share your post link in the Ambassador WhatsApp group so everyone can boost it together.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>💤 Silent WhatsApp Group?</strong>
+                    <p>Ask a question. Try: <em>"What's the #1 skill you're worried about after graduating?"</em> Always sparks conversation.</p>
+                </div>
+                <div class="card card-accent">
+                    <strong>🤔 Unsure About Something?</strong>
+                    <p>Always escalate to your Community Manager before giving uncertain answers to students. Never guess about bootcamp details — accuracy matters.</p>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 4rem;" class="reveal">
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Ready to submit your monthly progress?</p>
+            <a href="#" class="btn">Monthly Reporting Dashboard</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="logo-text">atom<span>camp</span></div>
+        <p>Empowering the next generation of Pakistan's tech leaders.</p>
+        <p class="copy">&copy; 2026 Atomcamp Campus Program &nbsp;·&nbsp; Confidential Internal Document</p>
+    </footer>
+
+    <script>
+        // ─── Scroll spy ───
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const navLinks = document.querySelectorAll('.sidebar a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+
+        // ─── Reveal on scroll ───
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+</html>
