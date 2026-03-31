@@ -6,18 +6,17 @@
     <title>Atomcamp Campus Ambassador Handbook | Complete Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #B9FF81;
-            --dark: #002333;
-            --dark-2: #00334d;
-            --accent: #FF6700;
-            --accent-2: #00CFFF;
+            --primary: #B9FF81; /* Lime Green */
+            --dark: #002333;    /* Midnight Blue */
+            --dark-2: #022d40;
+            --accent: #FF6700;  /* Orange */
             --text-light: #F8F9FA;
-            --text-muted: rgba(255, 255, 255, 0.65);
-            --glass: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --transition: all 0.3s ease;
         }
 
@@ -26,10 +25,10 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--dark);
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -49,9 +48,8 @@
             gap: 10px;
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 0.72rem;
-            font-family: 'DM Mono', monospace;
-            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
             padding: 4px 0;
             transition: var(--transition);
             white-space: nowrap;
@@ -95,29 +93,26 @@
             pointer-events: none;
         }
         .hero-badge {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            color: var(--accent-2);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--primary);
             text-transform: uppercase;
-            border: 1px solid rgba(0, 207, 255, 0.3);
-            padding: 6px 20px;
+            border: 1px solid rgba(185, 255, 129, 0.3);
+            padding: 8px 25px;
             border-radius: 50px;
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
         }
         .logo-text {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 8vw, 5.5rem);
             font-weight: 700;
-            letter-spacing: -2px;
             margin-bottom: 1rem;
-            line-height: 1;
+            line-height: 1.1;
         }
         .logo-text span { color: var(--primary); }
         .hero-subtitle {
-            font-family: 'DM Mono', monospace;
-            font-size: clamp(0.75rem, 2vw, 0.9rem);
-            letter-spacing: 0.25em;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.15em;
             color: var(--text-muted);
             text-transform: uppercase;
             margin-bottom: 3rem;
@@ -126,18 +121,18 @@
             max-width: 600px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 10px;
+            padding: 2.5rem;
             margin-bottom: 3rem;
             text-align: left;
         }
         .hero-objective strong {
             display: block;
             color: var(--primary);
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
         .hero-objective ul {
             list-style: none;
@@ -176,33 +171,32 @@
 
         /* ─── SECTION HEADERS ─── */
         .section-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.2em;
-            color: var(--accent-2);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--accent);
             text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             display: block;
+            font-weight: 600;
         }
         h3 {
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: var(--text-light);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
         }
         h3 em { color: var(--primary); font-style: normal; }
-        .section-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; max-width: 680px; }
+        .section-desc { color: var(--text-muted); margin-bottom: 3.5rem; font-size: 1.1rem; max-width: 700px; }
         h4 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--text-light);
-            margin: 2.5rem 0 1rem;
+            margin: 3rem 0 1.2rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        h4::before { content: '//'; color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.9rem; }
+        h4::before { content: ''; width: 4px; height: 24px; background: var(--primary); border-radius: 2px; }
         p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1rem; }
 
         /* ─── DIVIDER ─── */
@@ -239,18 +233,18 @@
             margin: 2rem 0;
             border-radius: 0 10px 10px 0;
         }
-        .tip strong { color: var(--primary); display: block; margin-bottom: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-        .tip p { margin: 0; font-size: 0.95rem; }
+        .tip strong { color: var(--primary); display: block; margin-bottom: 0.5rem; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; }
+        .tip p { margin: 0; font-size: 1rem; }
 
         .warning {
-            background: rgba(255, 103, 0, 0.07);
-            border-left: 3px solid var(--accent);
-            padding: 1.25rem 1.5rem;
+            background: rgba(255, 103, 0, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
             margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
         }
-        .warning strong { color: var(--accent); display: block; margin-bottom: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-        .warning p { margin: 0; font-size: 0.95rem; }
+        .warning strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; }
+        .warning p { margin: 0; font-size: 1rem; }
 
         /* ─── GRID & CARDS ─── */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
@@ -265,9 +259,9 @@
         .card:hover { transform: translateY(-4px); border-color: rgba(185,255,129,0.2); }
         .card > strong { display: block; color: var(--text-light); font-size: 1rem; margin-bottom: 0.75rem; }
         .card > p { font-size: 0.9rem; margin: 0; }
-        .card-accent { border-left: 3px solid var(--accent); }
-        .card-blue { border-left: 3px solid var(--accent-2); }
-        .card-green { border-left: 3px solid var(--primary); }
+        .card-accent { border-left: 4px solid var(--accent); }
+        .card-blue { border-left: 4px solid var(--primary); }
+        .card-green { border-left: 4px solid var(--primary); }
 
         .card-icon {
             font-size: 1.8rem;
@@ -284,31 +278,30 @@
             margin-bottom: 1rem;
         }
         .kpi-badge {
-            background: rgba(185,255,129,0.1);
+            background: rgba(185, 255, 129, 0.1);
             color: var(--primary);
-            border: 1px solid rgba(185,255,129,0.25);
+            border: 1px solid rgba(185, 255, 129, 0.25);
             border-radius: 6px;
             padding: 4px 12px;
-            font-family: 'DM Mono', monospace;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
         }
-        .kpi-badge.orange { background: rgba(255,103,0,0.1); color: var(--accent); border-color: rgba(255,103,0,0.25); }
-        .kpi-badge.blue { background: rgba(0,207,255,0.1); color: var(--accent-2); border-color: rgba(0,207,255,0.25); }
-        .kpi-title { font-size: 1rem; font-weight: 600; color: var(--text-light); }
-        .kpi-weight { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin-left: auto; }
+        .kpi-badge.orange { background: rgba(255, 103, 0, 0.1); color: var(--accent); border-color: rgba(255, 103, 0, 0.25); }
+        .kpi-badge.blue { background: rgba(185, 255, 129, 0.1); color: var(--primary); border-color: rgba(185, 255, 129, 0.25); }
+        .kpi-title { font-size: 1.1rem; font-weight: 700; color: var(--text-light); }
+        .kpi-weight { font-size: 0.85rem; color: var(--text-muted); margin-left: auto; font-weight: 500; }
 
         table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1.5rem; }
         th {
-            background: rgba(185,255,129,0.06);
+            background: rgba(185, 255, 129, 0.08);
             color: var(--primary);
-            font-family: 'DM Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             text-align: left;
-            padding: 10px 14px;
+            padding: 12px 15px;
             border-bottom: 1px solid var(--glass-border);
+            font-weight: 700;
         }
         td {
             padding: 10px 14px;
@@ -328,15 +321,15 @@
             border: 1px solid var(--glass-border);
             text-align: center;
         }
-        .score-range { font-family: 'DM Mono', monospace; font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .score-label { font-size: 0.85rem; color: var(--text-muted); }
-        .score-gold { background: rgba(255,215,0,0.06); border-color: rgba(255,215,0,0.2); }
+        .score-range { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .score-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+        .score-gold { background: rgba(255,215,0,0.08); border-color: rgba(255,215,0,0.2); }
         .score-gold .score-range { color: #FFD700; }
-        .score-silver { background: rgba(185,255,129,0.06); border-color: rgba(185,255,129,0.2); }
+        .score-silver { background: rgba(185,255,129,0.08); border-color: rgba(185,255,129,0.2); }
         .score-silver .score-range { color: var(--primary); }
-        .score-blue { background: rgba(0,207,255,0.06); border-color: rgba(0,207,255,0.2); }
-        .score-blue .score-range { color: var(--accent-2); }
-        .score-red { background: rgba(255,103,0,0.06); border-color: rgba(255,103,0,0.2); }
+        .score-blue { background: rgba(185,255,129,0.08); border-color: rgba(185,255,129,0.2); }
+        .score-blue .score-range { color: var(--primary); }
+        .score-red { background: rgba(255,103,0,0.08); border-color: rgba(255,103,0,0.2); }
         .score-red .score-range { color: var(--accent); }
 
         /* ─── TIMELINE ─── */
@@ -363,11 +356,11 @@
             box-shadow: 0 0 8px var(--primary);
         }
         .timeline-month {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--primary);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
         .timeline-content { font-size: 0.95rem; color: var(--text-muted); }
 
@@ -416,7 +409,7 @@
         }
         footer .logo-text { font-size: 2.5rem; margin-bottom: 0.75rem; }
         footer p { font-size: 0.95rem; margin-bottom: 0.25rem; }
-        footer .copy { font-size: 0.75rem; opacity: 0.35; margin-top: 2rem; font-family: 'DM Mono', monospace; }
+        footer .copy { font-size: 0.8rem; opacity: 0.4; margin-top: 2.5rem; letter-spacing: 0.05em; }
 
         /* ─── SCROLL FADE IN ─── */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -771,7 +764,7 @@
             <!-- Activity & Consistency -->
             <div class="kpi-section">
                 <div class="kpi-header">
-                    <span class="kpi-badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted); border-color: var(--glass-border);">15%</span>
+                    <span class="kpi-badge">15%</span>
                     <span class="kpi-title">4. Activity & Consistency</span>
                 </div>
                 <table>
